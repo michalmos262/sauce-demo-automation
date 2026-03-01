@@ -4,11 +4,13 @@ import { InventoryPage } from '../pages/InventoryPage';
 import { USERS } from '../utils/testData';
 import { UserType } from '../utils/types';
 import { ProductDetailPage } from '../pages/ProductDetailPage';
+import { CartPage } from '../pages/CartPage';
 
 type MyFixtures = {
   loginPage: LoginPage;
   loggedIn: InventoryPage;
   productDetailPage: ProductDetailPage;
+  cartPage: CartPage;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -29,6 +31,10 @@ export const test = base.extend<MyFixtures>({
 
   productDetailPage: async ({ page }, use) => {
     await use(new ProductDetailPage(page));
+  },
+
+  cartPage: async ({ page }, use) => {
+    await use(new CartPage(page));
   }
 });
 

@@ -9,22 +9,19 @@ test.describe('Products', () => {
   test('TC-P02: Sort by Name A→Z - names are alphabetical', { tag: ['@regression'] }, async ({ loggedIn }) => {
     await loggedIn.sortBy(SortOption.NAME_ASC);
     const names = await loggedIn.getProductNames();
-    const sorted = [...names].sort((a, b) => a.localeCompare(b));
-    expect(names).toEqual(sorted);
+    expect(names).toBeSortedAlphabetically();
   });
 
   test('TC-P03: Sort by Price low→high - prices ascending', { tag: ['@regression'] }, async ({ loggedIn }) => {
     await loggedIn.sortBy(SortOption.PRICE_ASC);
     const prices = await loggedIn.getProductPrices();
-    const sorted = [...prices].sort((a, b) => a - b);
-    expect(prices).toEqual(sorted);
+    expect(prices).toBeSortedAscending();
   });
 
   test('TC-P04: Sort by Price high→low - prices descending', { tag: ['@regression'] }, async ({ loggedIn }) => {
     await loggedIn.sortBy(SortOption.PRICE_DESC);
     const prices = await loggedIn.getProductPrices();
-    const sorted = [...prices].sort((a, b) => b - a);
-    expect(prices).toEqual(sorted);
+    expect(prices).toBeSortedDescending();
   });
 
   test('TC-P05: Click product navigates to detail page', { tag: ['@smoke', '@regression'] }, async ({ loggedIn }) => {

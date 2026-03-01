@@ -1,4 +1,5 @@
 import { test as base, expect } from '@playwright/test';
+import '../utils/matchers';
 import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { USERS } from '../utils/testData';

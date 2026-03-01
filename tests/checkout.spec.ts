@@ -33,7 +33,7 @@ test.describe('Checkout', () => {
     await expect(checkoutStep1Page.page).toHaveURL(/checkout-step-two/);
     await expect.soft(checkoutStep2Page.subtotalLabel).toBeVisible();
     const summary = await checkoutStep2Page.getSummary();
-    expect(summary.total).toBeGreaterThan(summary.subtotal);
+    expect(summary).toHaveTaxApplied();
   });
 
   test('TC-CH06: Finish shows confirmation page with thank-you', { tag: ['@smoke', '@regression'] }, async ({ checkoutStep1Page, checkoutStep2Page, checkoutCompletePage }) => {

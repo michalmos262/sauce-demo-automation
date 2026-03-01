@@ -12,17 +12,17 @@ test.describe('Navigation & Auth Guards', () => {
 
   test('TC-N02: Direct access to /inventory.html without login redirects to login', { tag: ['@regression'] }, async ({ page }) => {
     await page.goto('/inventory.html');
-    await expect(page).toHaveURL(/\/$|index\.html/);
+    expect(page).toRedirectToLogin();
   });
 
   test('TC-N03: Direct access to /cart.html without login redirects to login', { tag: ['@regression'] }, async ({ page }) => {
     await page.goto('/cart.html');
-    await expect(page).toHaveURL(/\/$|index\.html/);
+    expect(page).toRedirectToLogin();
   });
 
   test('TC-N04: Direct access to /checkout-step-one.html without login redirects to login', { tag: ['@regression'] }, async ({ page }) => {
     await page.goto('/checkout-step-one.html');
-    await expect(page).toHaveURL(/\/$|index\.html/);
+    expect(page).toRedirectToLogin();
   });
 
   test('TC-N05: Cancel from checkout step 1 returns to cart', { tag: ['@regression'] }, async ({ loggedIn, cartPage, checkoutStep1Page }) => {

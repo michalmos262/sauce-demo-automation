@@ -1,5 +1,5 @@
 {
-  "name": "swag-labs-automation",
+  "name": "sauce-demo-automation",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -14,16 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michalmos262/swag-labs-automation.git"
+    "url": "git+https://github.com/michalmos262/sauce-demo-automation.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/michalmos262/swag-labs-automation/issues"
+    "url": "https://github.com/michalmos262/sauce-demo-automation/issues"
   },
-  "homepage": "https://github.com/michalmos262/swag-labs-automation#readme",
+  "homepage": "https://github.com/michalmos262/sauce-demo-automation#readme",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.58.2",

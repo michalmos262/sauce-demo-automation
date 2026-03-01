@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures';
 import { VALID_CHECKOUT_INFO } from '../utils/testData';
 
 test.describe('Navigation & Auth Guards', () => {
-  test('TC-N01: Logout redirects to login page', async ({ loggedIn, loginPage }) => {
+  test('TC-N01: Logout redirects to login page', { tag: ['@smoke', '@regression'] }, async ({ loggedIn, loginPage }) => {
     await loggedIn.logout();
     await expect(loggedIn.page).toHaveURL(/\/$|index\.html/);
     await expect(loginPage.loginButton).toBeVisible();
@@ -10,22 +10,22 @@ test.describe('Navigation & Auth Guards', () => {
     await expect(loginPage.passwordInput).toHaveValue('');
   });
 
-  test('TC-N02: Direct access to /inventory.html without login redirects to login', async ({ page }) => {
+  test('TC-N02: Direct access to /inventory.html without login redirects to login', { tag: ['@regression'] }, async ({ page }) => {
     await page.goto('/inventory.html');
     await expect(page).toHaveURL(/\/$|index\.html/);
   });
 
-  test('TC-N03: Direct access to /cart.html without login redirects to login', async ({ page }) => {
+  test('TC-N03: Direct access to /cart.html without login redirects to login', { tag: ['@regression'] }, async ({ page }) => {
     await page.goto('/cart.html');
     await expect(page).toHaveURL(/\/$|index\.html/);
   });
 
-  test('TC-N04: Direct access to /checkout-step-one.html without login redirects to login', async ({ page }) => {
+  test('TC-N04: Direct access to /checkout-step-one.html without login redirects to login', { tag: ['@regression'] }, async ({ page }) => {
     await page.goto('/checkout-step-one.html');
     await expect(page).toHaveURL(/\/$|index\.html/);
   });
 
-  test('TC-N05: Cancel from checkout step 1 returns to cart', async ({ loggedIn, cartPage, checkoutStep1Page }) => {
+  test('TC-N05: Cancel from checkout step 1 returns to cart', { tag: ['@regression'] }, async ({ loggedIn, cartPage, checkoutStep1Page }) => {
     await loggedIn.addFirstItemToCart();
     await loggedIn.goToCart();
     await cartPage.proceedToCheckout();
@@ -33,7 +33,7 @@ test.describe('Navigation & Auth Guards', () => {
     await expect(loggedIn.page).toHaveURL(/cart\.html/);
   });
 
-  test('TC-N06: Cancel from checkout step 2 returns to inventory', async ({ loggedIn, cartPage, checkoutStep1Page, checkoutStep2Page }) => {
+  test('TC-N06: Cancel from checkout step 2 returns to inventory', { tag: ['@regression'] }, async ({ loggedIn, cartPage, checkoutStep1Page, checkoutStep2Page }) => {
     await loggedIn.addFirstItemToCart();
     await loggedIn.goToCart();
     await cartPage.proceedToCheckout();

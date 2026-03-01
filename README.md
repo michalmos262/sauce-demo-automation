@@ -87,6 +87,16 @@ Run tests by title:
 npx playwright test --grep "TC-L01"
 ```
 
+Run tests by tag:
+
+```bash
+# Run only smoke tests (7 critical happy-path tests)
+npx playwright test --grep @smoke
+
+# Run full regression suite
+npx playwright test --grep @regression
+```
+
 ---
 
 ## Viewing Reports

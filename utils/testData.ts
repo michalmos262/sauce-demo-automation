@@ -1,4 +1,4 @@
-import { Credentials, UserType } from './types';
+import { CheckoutInfo, Credentials, UserType } from './types';
 
 const password = process.env.PASSWORD ?? 'secret_sauce';
 
@@ -29,4 +29,16 @@ export const ERROR_MESSAGES = {
   firstNameRequired: 'Error: First Name is required',
   lastNameRequired: 'Error: Last Name is required',
   postalCodeRequired: 'Error: Postal Code is required',
+};
+
+export const VALID_CHECKOUT_INFO: CheckoutInfo = {
+  firstName: 'Jane',
+  lastName: 'Doe',
+  postalCode: '12345',
+};
+
+export const INCOMPLETE_CHECKOUT_INFO: Record<string, CheckoutInfo> = {
+  missingFirstName: { firstName: '', lastName: 'Doe', postalCode: '12345' },
+  missingLastName: { firstName: 'Jane', lastName: '', postalCode: '12345' },
+  missingPostalCode: { firstName: 'Jane', lastName: 'Doe', postalCode: '' },
 };

@@ -5,12 +5,18 @@ import { USERS } from '../utils/testData';
 import { UserType } from '../utils/types';
 import { ProductDetailPage } from '../pages/ProductDetailPage';
 import { CartPage } from '../pages/CartPage';
+import { CheckoutStep1Page } from '../pages/CheckoutStep1Page';
+import { CheckoutStep2Page } from '../pages/CheckoutStep2Page';
+import { CheckoutCompletePage } from '../pages/CheckoutCompletePage';
 
 type MyFixtures = {
   loginPage: LoginPage;
   loggedIn: InventoryPage;
   productDetailPage: ProductDetailPage;
   cartPage: CartPage;
+  checkoutStep1Page: CheckoutStep1Page;
+  checkoutStep2Page: CheckoutStep2Page;
+  checkoutCompletePage: CheckoutCompletePage;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -35,6 +41,18 @@ export const test = base.extend<MyFixtures>({
 
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page));
+  },
+
+  checkoutStep1Page: async ({ page }, use) => {
+    await use(new CheckoutStep1Page(page));
+  },
+
+  checkoutStep2Page: async ({ page }, use) => {
+    await use(new CheckoutStep2Page(page));
+  },
+
+  checkoutCompletePage: async ({ page }, use) => {
+    await use(new CheckoutCompletePage(page));
   }
 });
 

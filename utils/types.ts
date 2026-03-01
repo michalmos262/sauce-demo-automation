@@ -16,3 +16,15 @@ export enum SortOption {
   PRICE_ASC = 'lohi',
   PRICE_DESC = 'hilo',
 }
+
+export interface CheckoutInfo {
+  firstName: string;
+  lastName: string;
+  postalCode: string;
+}
+
+export interface CheckoutSummary {
+  subtotal: number;
+  tax: number;
+  total: number;
+}
